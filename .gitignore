@@ -1,0 +1,60 @@
+# Ignore files created by Terraform
+**/patterns/*/.terraform/
+**/patterns/*/*.tfstate
+**/patterns/*/*.tfstate.*
+**/patterns/*/*.tfplan
+
+# Ignore crash log files
+**/patterns/*/crash.log
+
+# Ignore override files as they are usually used to modify the default settings
+**/patterns/*/override.tf
+**/patterns/*/override.tf.json
+**/patterns/*/*_override.tf
+**/patterns/*/*_override.tf.json
+
+# Ignore files that may contain sensitive information
+#**/patterns/*/eks/*.tfvars
+#**/patterns/*/eks/*.tfvars.json
+#**/patterns/*/eks/*.tfvars.auto
+
+# Ignore plugin files
+**/patterns/*.plugin
+**/patterns/*/eks/*.plugin.sha256
+
+# Ignore local .terraform directories
+**/patterns/*/.terraform/*
+
+#ignore .terraform in modules
+
+**/modules/*/.terraform*/*
+**/modules/*/.terraform*
+
+**/modules/*/.terraform/
+**/modules/*/*.tfstate
+**/modules/*/*.tfstate.*
+**/modules/*/*.tfplan
+
+# Ignore crash log files
+**/modules/*/crash.log
+
+# Ignore override files as they are usually used to modify the default settings
+**/modules/*/override.tf
+**/modules/*/override.tf.json
+**/modules/*/*_override.tf
+**/modules/*/*_override.tf.json
+
+# Ignore files that may contain sensitive information
+#**/modules/*/*.tfvars
+#**/modules/*/*.tfvars.json
+#**/modules/*/*.tfvars.auto
+
+# Ignore plugin files
+**/modules/*/*.plugin
+**/modules/*/*.plugin.sha256
+
+# Ignore local .terraform directories
+**/modules/*/.terraform/*
+**/modules/*/.terraform*/*
+**/modules/*/.terraform*
+

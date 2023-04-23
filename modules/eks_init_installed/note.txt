@@ -1,0 +1,37 @@
+To expose service for access from outside of cluster, we have two options
+- Nginx-ingress
+- KongAPI gateway
+
+1. NGINX_INGRESS
+ - one ingress-nginx can be external and internal also, we don't need create two ingress. But it will exposed directly service inside cluster via external dns of Nginx-loadbalancer
+ - Incase we want to separate, we should create 2 nginx-ingress. Or one internal-nginx ingress and one kongapi for external
+ - Below is configuration options for Nginx-ingress. If only nginx-internal, we can deploy it as Nodeport. Annotation is required for internal
+	type: LoadBalancer
+        ## type: NodePort
+        ## nodePorts:
+        ##   http: 32080
+        ##   https: 32443
+        ##   tcp:
+        ##     8080: 32808
+        nodePorts:
+            http: ""
+            https: ""
+            tcp: {}
+            udp: {}
+        external:
+            # define external or internal
+            enabled: false
+        internal:
+            # -- Enables an additional internal load balancer (besides the external one).
+            enabled: true
+            # -- Annotations are mandatory for the load balancer to come up. Varies with the cloud service.
+            annotations:
+              external-dns.alpha.kubernetes.io/hostname: ${var.internal_dns}
+              service.beta.kubernetes.io/aws-load-balancer-type: nlb
+              service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+
+2. KONGAPI-Gateway:
+
+ - Kong can be deployed inside or outside of cluster, depend of networks
+ - with AWS, pod receive ip of vpc so kong can communicate with other service outside cluster (lambda, ecs, ec2, ...) but incase on-premises or other cloud provider, should deploy kong outside Cluster
+
