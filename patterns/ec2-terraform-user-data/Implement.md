@@ -4,13 +4,19 @@ In this lab
 ## 1. Architecture
 
 ### 1. Scenario
+- Install software to EC2 after provisioning
+- Get sensitive variables from AWS system manager parameters store
 ### 2. Describe
+-  
+-
 ### 3. Implement
-
+- Create parameters in AWS system manager parameters store.
+- Create user_data.sh which has variables in scripts, use  ${secret} in script.
+- Create datasource which get value from parameters store
+- Use templatefile fuction and pass variables to script
+- run terraform
 
 ## 2. Terraform
-
-
 ### 1. How to install software during provisioning EC2
 Provisioning EC2 and with pre-install parkages during provisioning can be done with following methods:
 
@@ -20,8 +26,11 @@ Provisioning EC2 and with pre-install parkages during provisioning can be done w
     - user_data = templatefile {filename.tpl} or using template_file datasource
     - user_data = <<EOF  ----------- EOF
 ### note:
-- how to use variables in user_data
-  
+- how to use variables in user_data > use templatefile and pass terraform variables to script  
 ### 2. Input variables
+
 ### 3. Output
+
 ### 4. Deployment
+- terraform plan
+- terraform apply
