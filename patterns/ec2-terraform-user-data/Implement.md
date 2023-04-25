@@ -2,6 +2,7 @@
 When you install EC2 instance, you might want to install additional software/packages for that instance. It makes sure you have enough tools for using after ec2 server is provisioned.
 In this lab
 ## 1. Architecture
+![image](https://user-images.githubusercontent.com/74917008/234213520-723e69a0-b428-4eda-9c1c-936d6211076a.png)
 
 ### 1. Scenario
 - Install software to EC2 after provisioning
